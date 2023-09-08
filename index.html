@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="krb">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>FLEXBOX</title>
+  </head>
+
+  <body>
+    <header id="header" class="page-header">
+      <div class="title">
+        <h1>FLEX</h1>
+        <h1>BOX</h1>
+      </div>
+      <nav class="navbar">
+        <div class="nav-row">
+          <div class="hamburger toggle">
+            <span></span>
+          </div>
+          <ul id="nav" class="site-nav">
+            <li><a href="#background">Background</a></li>
+            <li><a href="#terminology">Terminology</a></li>
+            <li><a href="#parent-properties">Parent Properties</a></li>
+            <li><a href="#child-properties">Child Properties</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="row">
+        <article class="card bg" id="top">
+          <h2>A Beginner's Guide to CSS Flexbox Layout</h2>
+          <p>
+            This complete user guide explains everything about CSS Flexbox,
+            exploring the properties for the parent element
+            <strong>(the flex container)</strong> and the child elements
+            <strong>(the flex items)</strong>.
+          </p>
+          <p>
+            This guide also includes background information on Flexbox as well
+            as key terminology, and uses examples of the Flexbox Layout in
+            action.
+          </p>
+        </article>
+        <aside class="card">
+          <figure>
+            <img
+              src="./assets/01-container.svg"
+              alt="Flexbox parent container"
+              class="card__image"
+           >
+            <figcaption class="card__caption">
+              The parent flex container<span class="material-icons"> image</span
+              ><a
+                href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flexbox-properties"
+                target="_blank"
+                >CSS Tricks</a
+              >
+            </figcaption>
+          </figure>
+        </aside>
+      </div>
+      <div class="row">
+        <aside class="card">
+          <figure>
+            <img src="./assets/02-items.svg" alt="Flexbox child elements" class="card__image">
+            <figcaption class="card__caption">
+              The flex item child elements<span class="material-icons">
+                image</span
+              ><a
+                href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flexbox-properties"
+                target="_blank"
+                >CSS Tricks</a
+              >
+            </figcaption>
+          </figure>
+        </aside>
+        <article class="card bg" id="background">
+          <h2>What is Flexbox?</h2>
+          <p>
+            The Flexible Box Layout, otherwise known as Flexbox, is a CSS layout
+            module that aims to provide a more efficient and flexible system of
+            aligning and distributing space on a webpage. Flexbox lets
+            developers distribute the space among items in a container, even
+            when their size is dynamic or unknown.
+          </p>
+          <p>
+            What makes Flexbox so flexible is this container system that allows
+            a parent element to alter the height and width of the items it
+            contains. A flex container expands the items within it to fill
+            available space, or else it shrinks them to prevent unwanted
+            overflow.
+          </p>
+          <p>
+            This helps developers to code responsive layouts that distribute and
+            align dynamic content within an available space.
+          </p>
+        </article>
+      </div>
+      <div class="row">
+        <article class="card bg" id="terminology">
+          <h2>Flexbox Terminology</h2>
+          <p>
+            Flexbox is a module, not just a single property, so the
+            documentation can be dense for beginners. Flexbox revolves around a
+            set of properties, some of which apply to the parent element (the
+            flex container) and others that apply to the child elements (the
+            flex items).
+          </p>
+          <p>
+            Flex layouts are based on <code>flex-flow</code> directions, which
+            can be seen in the adjoining graphic.
+          </p>
+          <p>
+            Items will be laid out following either the
+            <strong>main axis</strong> which goes from
+            <strong>main-start</strong> to <strong>main-end</strong> or the
+            cross axis, which goes from cross-start to cross-end.
+          </p>
+        </article>
+        <aside class="card">
+          <figure>
+            <img src="./assets/00-basic.svg" alt="Flexbox diagram" class="card__image">
+            <figcaption class="card__caption">
+              Basic flexbox terminology<span class="material-icons"> image</span
+              ><a
+                href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-basics-and-terminology"
+                target="_blank"
+                >CSS Tricks</a
+              >
+            </figcaption>
+          </figure>
+        </aside>
+      </div>
+      <div class="row">
+        <article class="card bg">
+          <h3>Terms and Definitions</h3>
+          <label class="list-label">Flexbox Terminology</label>
+          <ul class="list">
+            <li>
+              <p>
+                <code>main axis</code> The main axis of a flex container is the
+                primary axis along which flex items are laid out.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>main-start | main-end</code> The flex items are placed
+                within the container starting from main-start and going to
+                main-end.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>main size</code> A flex item's width or height, whichever
+                is in the main dimension, is the item's main size. The flex
+                item's main size property is either the 'width' or 'height'
+                property, whichever is in the main dimension.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>cross axis</code> The axis perpendicular to the main axis
+                is called the cross axis. Its direction depends on the main axis
+                direction.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>cross-start | cross-end</code> Flex lines are filled with
+                items and placed into the container starting on the cross-start
+                side of the flex container and going toward the cross-end side.
+              </p>
+            </li>
+            <li>
+              <p>
+                <code>cross size</code> The width or height of a flex item,
+                whichever is in the cross dimension, is the item's cross size.
+                The cross size property is whichever of 'width' or 'height' that
+                is in the cross dimension.
+              </p>
+            </li>
+          </ul>
+        </article>
+      </div>
+      <div class="column-wrapper">
+        <div class="row properties">
+          <article class="card head" id="parent-properties">
+            <h2>Parent Properties</h2>
+            <h3 class="parent-text">The Flex Container</h3>
+            <p>
+              The following properties can be applied to a parent container to
+              begin using the flexbox layout.
+            </p>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>display</h4>
+            <p>
+              This defines a flex container, and can be inline or block
+              depending on the given value. It enables a flex context for all
+              its direct children.
+            </p>
+            <code>.container { display: flex; }</code>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>flex-direction</h4>
+            <p>
+              This establishes the main-axis, thus defining the direction flex
+              items are placed in the flex container. Flexbox is (aside from
+              optional wrapping) a single-direction layout concept. Think of
+              flex items as primarily laying out either in horizontal rows or
+              vertical columns.
+            </p>
+            <figure>
+              <img
+                src="./assets/03-flex-direction.svg"
+                alt="flex-direction property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                flex-direction<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flex-direction"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>flex-wrap</h4>
+            <p>
+              By default, flex items will all try to fit onto one line. You can
+              change that and allow the items to wrap as needed with this
+              property.
+            </p>
+            <label class="list-label">Property List</label>
+            <ul class="list">
+              <li>
+                <p>
+                  <code>no-wrap</code> (default): all flex items will be on one
+                  line.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>wrap</code>: flex items will wrap onto multiple lines,
+                  from top to bottom.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>wrap-reverse</code>: flex items will wrap onto multiple
+                  lines from bottom to top.
+                </p>
+              </li>
+            </ul>
+            <figure>
+              <img
+                src="./assets/04-flex-wrap.svg"
+                alt="flex-wrap property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                flex-wrap<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flex-wrap"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>flex-flow</h4>
+            <p>
+              This term is shorthand for the <code>flex-direction</code> and
+              <code>flex-wrap</code> properties, which together define the flex
+              container's main and cross axes. The default value for this
+              property is <code>row nowrap</code>.
+            </p>
+            <code>.container { flex-flow: column wrap; }</code>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>justify-content</h4>
+            <p>
+              This defines the alignment along the main axis. It helps
+              distribute extra free space leftover when either all the flex
+              items on a line are inflexible, or are flexible but have reached
+              their maximum size. It also exerts some control over the alignment
+              of items when they overflow the line.
+            </p>
+            <label class="list-label">Property List</label>
+            <ul class="list">
+              <li>
+                <p>
+                  <code>flex-start</code> (default): items are packed toward the
+                  start of the flex-direction.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>flex-end:</code>: items are packed toward the end of the
+                  flex-direction.
+                </p>
+              </li>
+              <li>
+                <p><code>center</code>: items are centered along the line.</p>
+              </li>
+              <li>
+                <p>
+                  <code>space-between</code>: items are evenly distributed in
+                  the line; first item is on the start line, last item on the
+                  end line.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>space-around</code>: items are evenly distributed in the
+                  line with equal space around them. Note that visually the
+                  spaces aren't equal, since all the items have equal space on
+                  both sides. The first item will have one unit of space against
+                  the container edge, but two units of space between the next
+                  item because that next item has its own spacing that applies.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>space-evenly</code>: items are distributed so that the
+                  spacing between any two items (and the space to the edges) is
+                  equal.
+                </p>
+              </li>
+            </ul>
+            <figure>
+              <img
+                src="./assets/05-justify-content.svg"
+                alt="justify-content property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                justify-content<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-justify-content"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>align-items</h4>
+            <p>
+              This defines the default behavior for how flex items are laid out
+              along the <strong>cross axis</strong> on the current line. Think
+              of it as the justify-content version for the cross-axis
+              (perpendicular to the main-axis).
+            </p>
+            <label class="list-label">Property List</label>
+            <ul class="list">
+              <li>
+                <p>
+                  <code>stretch</code> (default): stretch to fill the container
+                  (still respect min-width/max-width).
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>flex-start | start | self-start</code>: items are placed
+                  at the start of the cross axis. The difference between these
+                  is subtle, and is about respecting the flex-direction rules or
+                  the writing-mode rules.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>flex-end | end | self-end</code>: items are placed at
+                  the end of the cross axis. The difference again is subtle and
+                  is about respecting flex-direction rules vs. writing-mode
+                  rules.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>center</code>: items are centered in the cross-axis.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>baseline</code>: items are aligned such as their
+                  baselines align.
+                </p>
+              </li>
+            </ul>
+            <figure>
+              <img
+                src="./assets/06-align-items.svg"
+                alt="align-items property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                align-items<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-align-items"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>align-content</h4>
+            <p>
+              This aligns a flex container's lines within when there is extra
+              space in the cross-axis, similar to how justify-content aligns
+              individual items within the main-axis.
+            </p>
+            <label class="list-label">Property List</label>
+            <ul class="list">
+              <li>
+                <p>
+                  <code>normal</code> (default): items are packed in their
+                  default position as if no value was set.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>flex-start | start</code>: items packed to the start of
+                  the container. The (more supported) flex-start honors the
+                  flex-direction while start honors the writing-mode direction.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>flex-end | end</code>: items packed to the end of the
+                  container. The (more support) flex-end honors the
+                  flex-direction while end honors the writing-mode direction.
+                </p>
+              </li>
+              <li>
+                <p><code>center</code>: items centered in the container.</p>
+              </li>
+              <li>
+                <p>
+                  <code>space-between</code>: items evenly distributed; the
+                  first line is at the start of the container while the last one
+                  is at the end.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>space-around</code>: items evenly distributed with equal
+                  space around each line.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>space-evenly</code>: items are evenly distributed with
+                  equal space around them.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>stretch</code>: lines stretch to take up the remaining
+                  space.
+                </p>
+              </li>
+            </ul>
+            <figure>
+              <img
+                src="./assets/07-align-content.svg"
+                alt="align-content property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                align-content<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-align-content"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--parent">
+            <h4>gap, row-gap, column-gap</h4>
+            <p>
+              The gap property explicitly controls the space between flex items.
+              It applies that spacing only between items not on the outer edges.
+            </p>
+            <p>
+              The behavior could be thought of as a minimum gutter, as if the
+              gutter is bigger somehow then the gap will only take effect if
+              that space would end up smaller.
+            </p>
+            <figure>
+              <img src="./assets/08-gap.svg" alt="gap property illustration"
+              class="card__image">
+              <figcaption class="card__caption">
+                gap, row-gap, column-gap<span class="material-icons">
+                  image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-gap-row-gap-column-gap"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+        <div class="row properties">
+          <article class="card head" id="child-properties">
+            <h2>Child Properties</h2>
+            <h3 class="child-text">The Flex Items</h3>
+            <p>
+              These properties can be used on the child elements, or flex items,
+              of a flex container parent.
+            </p>
+          </article>
+          <article class="prop-card prop-card--child">
+            <h4>order</h4>
+            <p>
+              By default, flex items are laid out in the source order. However,
+              the order property controls the order in which they appear in the
+              flex container. Items with the same order revert to source order.
+            </p>
+            <figure>
+              <img
+                src="./assets/09-order.svg"
+                alt="order property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                order<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-properties-for-the-childrenflex-items"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--child">
+            <h4>flex-grow</h4>
+            <p>
+              This defines the ability for a flex item to grow if necessary. It
+              accepts a unitless value that serves as a proportion. It dictates
+              what amount of the available space inside the flex container the
+              item should take up.
+            </p>
+            <p>
+              If all items have <code>flex-grow</code> set to 1, the remaining
+              space in the container will be distributed equally to all
+              children. If one of the children has a value of 2, that child
+              would take up twice as much of the space as either of the others.
+            </p>
+            <figure>
+              <img
+                src="./assets/10-flex-grow.svg"
+                alt="flex-grow property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                flex-grow<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flex-grow"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+          <article class="prop-card prop-card--child">
+            <h4>flex-shrink</h4>
+            <p>
+              This defines the ability for a flex item to shrink if necessary.
+              Negative numbers are invalid.
+            </p>
+            <code>.item { flex-shrink: 3; }</code>
+          </article>
+          <article class="prop-card prop-card--child">
+            <h4>flex-basis</h4>
+            <p>
+              This defines the default size of an element before the remaining
+              space is distributed. It can be a length or a keyword. If set to
+              0, the extra space around content isn't factored in. If set to
+              auto, the extra space is distributed based on its flex-grow value.
+            </p>
+            <code>.item { flex-basis: | auto; }</code>
+          </article>
+          <article class="prop-card prop-card--child">
+            <h4>flex</h4>
+            <p>
+              This is the shorthand for <code>flex-grow</code>,
+              <code>flex-shrink</code> and <code>flex-basis</code>
+              combined. The second and third parameters (flex-shrink and
+              flex-basis) are optional.
+            </p>
+          </article>
+          <article class="prop-card prop-card--child">
+            <h4>align-self</h4>
+            <p>
+              This allows the default alignment (or the one specified by
+              <code>align-items</code>) to be overridden for individual flex
+              items.
+            </p>
+            <figure>
+              <img
+                src="./assets/11-align-self.svg"
+                alt="align-self property illustration"
+                class="card__image"
+             >
+              <figcaption class="card__caption">
+                align-self<span class="material-icons"> image</span
+                ><a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-align-self"
+                  target="_blank"
+                  >CSS Tricks</a
+                >
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+      <p class="top-btn">
+        <a href="#top"
+          ><span class="material-icons top">arrow_upward</span>Back to Top</a
+        >
+      </p>
+    </main>
+    <footer class="footer">
+      <div class="footer-row">
+        <div class="title">
+          <h1>FLEX</h1>
+          <h1>BOX</h1>
+        </div>
+        <div class="footer-links">
+          <ul class="quick-links">
+            <li class=label>Quick Links</li>
+            <li><a href="#background">Background</a></li>
+            <li><a href="#terminology">Terminology</a></li>
+            <li><a href="#parent-properties">Parent Properties</a></li>
+            <li><a href="#child-properties">Child Properties</a></li>
+          </ul>
+        </div>
+      </div>
+      <span class="copyright"
+        >✨ Special thanks to
+        <a
+          href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+          target="_blank"
+          >CSS Tricks</a
+        >
+        for the adapted content of this website.</span
+      >
+      <span>&copy; 2023 Kat R. Buchanan</span>
+    </footer>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
